@@ -8,59 +8,46 @@
 </head>
 <body>
     <div class="form_box">
-       
-<?php
-  function show_form($card_id, $persona) {
-?>
-        <form action="cards.php" method="post" class="rf">
+        <form action="index.php" method="post" class="rf">
 
             <label for="card_id">Номер карточки:</label>
             <input type="text" class="card_default"  value="77700770" disabled>
-            <input type="text" class="rfield card_id" name="card_id" value="<?php print $card_id ?>" placeholder="12345"/>
+            <input type="text" class="rfield card_id" name="card_id"  placeholder="12345" maxlength="5" pattern="[0-9]{5}" required/>
 
             <label for="persona">ФИО клиента:</label>
-            <input type="text" class="rfield" name="persona" value="<?php print $persona ?>" placeholder="Иванов И. И."/>
+            <input type="text" class="rfield" name="name" placeholder="Иванов И. И." pattern="^[А-Яа-яІіЇї\s\.]+$" required/>
 
             <label for="user_phone">Телефон пользователя:</label>
-            <input type="text" class="rfield" name="phone" placeholder="0981112233"/>
+            <input type="tel" class="rfield" name="phone" placeholder="0981112233" required/>
 
-            <input type="submit" class="btn_submit" value="Отправить данные" />
+            <input type="submit" class="btn_submit" name="submit" value="Отправить данные" />
 
         </form>
-
+    </div>
+<p>
 <?php
-  }
-  function check_form($card_id, $persona) {
-    if(!$card_id || !$persona):
-      print("Вы не заполнили нужные поля!<br>");
-    if(!$card_id) {
-      print("Введите Ваше имя.<br>");
+    $errors = array(); 
+    
+    if(isset($_POST['submit'])){
+        $card_id = isset($_POST['card_id']) ? $_POST['card_id'] : null;
+        $name = isset($_POST['name']) ? $_POST['name'] : null;
+        $phone = isset($_POST['phone']) ? $_POST['phone'] : null;
+           //Check the name and make sure that it isn't a blank/empty string.
+        if(strlen(trim($name)) === 0){
+            //Blank string, add error to $errors array.
+            $errors[] = "You must enter your name!";
+        }
+
+        if(!empty($errors)){ 
+        echo '<h1>Error(s)!</h1>';
+            foreach($errors as $errorMessage){
+                echo $errorMessage . '<br>';
+            }
+        } 
     }
-    if(!$persona) {
-      print("Введите ваш e-mail.<br>");
-    }
-    show_form($card_id, $persona);
-    else:
-      confirm_form($card_id, $persona);
-    endif;
-  }
-  function confirm_form($card_id, $persona) {
-  ?>
-    <h2>Введенная Вами информация:</h2>
-  <?php
-    print("<br>$card_id<br>$persona\n");
-  }
-  if(!$submit){
-  ?>
-  <p>Введите информацию о себе</p>
-  <p>Все поля обязательны для заполнения.<p>
-  <?php
-    show_form($card_id, $persona);
-  } else {
-    check_form($card_id, $persona);
-  }
+ 
 ?>
 
-    </div>
+</p>
 </body>
 </html>
