@@ -6,60 +6,72 @@ body {
 }
 
 .form_box {
-  width: 300px;
-  margin: 40px auto;
+    width: 300px;
+    margin: 40px auto;
 }
+
 .form_box label {
-  font-size: 16px;
-  display: block;
+    font-size: 16px;
+    display: block;
 }
-.form_box input, a{
-  display: inline-block;
-  border: 2px solid #cfcfcf;
-  font-size: 14px;
-  text-align: center;
-  padding: 7px 7px 8px;
-  width: 250px;
-  margin-bottom: 20px;
-  transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
+
+.form_box input,
+a {
+    display: inline-block;
+    border: 2px solid #cfcfcf;
+    font-size: 14px;
+    text-align: center;
+    padding: 7px 7px 8px;
+    width: 250px;
+    margin-bottom: 20px;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
 }
+
 a {
     text-decoration: none;
 }
+
 .form_box input:focus {
-  outline: none;
-  border-color: #07a6e6;
+    outline: none;
+    border-color: #07a6e6;
 }
+
 .form_box .card_default {
     width: 157px;
 }
+
 .form_box .card_id {
     width: 70px;
 }
-.form_box .btn_submit, a{
-  font-family: Arial, sans-serif;
-  border: none;
-  width: 270px;
-  text-align: center;
-  background: #07a6e6;
-  font-size: 13px;
-  font-weight: bold;
-  color: #ffffff;
-  cursor: pointer;
-  height: 35px;
-  line-height: 35px;
-  padding: 0;
+
+.form_box .btn_submit,
+a {
+    font-family: Arial, sans-serif;
+    border: none;
+    width: 270px;
+    text-align: center;
+    background: #07a6e6;
+    font-size: 13px;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    height: 35px;
+    line-height: 35px;
+    padding: 0;
 }
+
 .form_box .btn_submit:hover {
-  background: #009ac2;
+    background: #009ac2;
 }
+
 .form_box .btn_submit:active {
-  box-shadow: inset 0 2px 2px rgba(0,0,0,0.2);
+    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.2);
 }
+
 .form_box .btn_submit.disabled,
 .form_box .btn_submit.disabled:hover {
-  background: #afdde6;
-  cursor: default;
+    background: #afdde6;
+    cursor: default;
 }
