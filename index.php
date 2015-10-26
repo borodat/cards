@@ -34,7 +34,6 @@
         $name = isset($_POST['name']) ? trim(strip_tags($_POST['name'])) : null;
         $phone = isset($_POST['phone']) ? trim(strip_tags($_POST['phone'])) : null;
         
-        
         $text = "77700770$card_id <br>"; 
         $text .= "$name <br>"; 
         $text .= "$phone <br><br>";
@@ -58,7 +57,6 @@
         }
     }
 ?>
-
 </p>
 </body>
 </html>

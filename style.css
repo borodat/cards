@@ -13,7 +13,7 @@ body {
   font-size: 16px;
   display: block;
 }
-.form_box input, a{
+.form_box input, a {
   display: inline-block;
   border: 2px solid #cfcfcf;
   font-size: 14px;
