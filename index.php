@@ -17,7 +17,6 @@
             <label for="user_phone">Номер телефона:</label>
             <input type="tel" class="rfield" name="phone" placeholder="0981112233" required maxlength="13" pattern="[0-9]{10,13}"/>
             <input type="submit" class="btn_submit" name="submit" value="Отправить данные" />
-            <a href="card.html" class="btn_submit">Посмотреть</a>
         </form>
     </div>
 <p>
