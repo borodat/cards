@@ -1,3 +1,15 @@
+<?php
+    define('DB_HOST', 'localhost');
+    define('DB_LOGIN', 'root');
+    define('DB_PASSWORD', '');
+    define('DB_NAME', 'budcentr_cards');
+    
+    $cnn = mysqli_connect(DB_HOST, DB_LOGIN, DB_PASSWORD, DB_NAME);
+    
+    if(!$cnn){
+        echo 'EROOR: cannot connct to database.';
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,26 +40,32 @@
         $name = isset($_POST['name']) ? trim(strip_tags($_POST['name'])) : null;
         $phone = isset($_POST['phone']) ? trim(strip_tags($_POST['phone'])) : null;
         
-        $text = "77700770$card_id <br>"; 
-        $text .= "$name <br>"; 
-        $text .= "$phone <br><br>";
-        
-        $file = fopen ("card.html", "a+");
-        fwrite ($file,$text);
-        fclose ($file);
-        header("Location: ".$_SERVER['REQUEST_URI']);
-        
-        //Check the name and make sure that it isn't a blank/empty string.      
-        if(strlen(trim($name)) === 0){
-            //Blank string, add error to $errors array.
-            $errors[] = "You must enter your name!";
+        $sql = mysqli_query($cnn, "INSERT INTO cards (card_id, name, phone) VALUES ('$card_id', '$name', '$phone')");
+        if( !$sql ){
+            echo mysqli_error($cnn);
         }
-        if(!empty($errors)){ 
-        echo '<h1>Error(s)!</h1>';
-            foreach($errors as $errorMessage){
-                echo $errorMessage . '<br>';
-            }
-        }
+        mysqli_close($cnn);
+        
+//        $text = "77700770$card_id <br>"; 
+//        $text .= "$name <br>"; 
+//        $text .= "$phone <br><br>";
+//        
+//        $file = fopen ("card.html", "a+");
+//        fwrite ($file,$text);
+//        fclose ($file);
+////        header("Location: ".$_SERVER['REQUEST_URI']);
+//        
+//        //Check the name and make sure that it isn't a blank/empty string.      
+//        if(strlen(trim($name)) === 0){
+//            //Blank string, add error to $errors array.
+//            $errors[] = "You must enter your name!";
+//        }
+//        if(!empty($errors)){ 
+//        echo '<h1>Error(s)!</h1>';
+//            foreach($errors as $errorMessage){
+//                echo $errorMessage . '<br>';
+//            }
+//        }
     }
 ?>
 </p>
