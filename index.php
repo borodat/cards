@@ -31,7 +31,7 @@
             <input type="submit" class="btn_submit" name="submit" value="Отправить данные" />
         </form>
     </div>
-<p>
+    <div class="form_box">
 <?php
     $errors = array(); 
     
@@ -44,8 +44,16 @@
         if( !$sql ){
             echo mysqli_error($cnn);
         }
-        mysqli_close($cnn);
         
+        $last_card = mysqli_query($cnn, "SELECT card_id, name, phone FROM cards ORDER BY id DESC LIMIT 2");
+        
+        while ($row = mysqli_fetch_array($last_card)){
+            echo "Номер: ".'77700770'.$row['card_id']."<br>";
+            echo "ФИО: ".$row['name']."<br>";
+            echo "Номер телефона: ".$row['phone']."<br>"."<br>";
+        }
+        mysqli_close($cnn);
+        header("Location: success.php");
 //        $text = "77700770$card_id <br>"; 
 //        $text .= "$name <br>"; 
 //        $text .= "$phone <br><br>";
@@ -68,6 +76,6 @@
 //        }
     }
 ?>
-</p>
+    </div>
 </body>
 </html>
