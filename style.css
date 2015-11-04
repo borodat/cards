@@ -75,3 +75,7 @@ a {
     background: #afdde6;
     cursor: default;
 }
+
+.success {
+    color: #07a6e6;
+}
