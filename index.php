@@ -5,9 +5,8 @@
     define('DB_NAME', 'budcentr_cards');
     
     $cnn = mysqli_connect(DB_HOST, DB_LOGIN, DB_PASSWORD, DB_NAME);
-    
     if(!$cnn){
-        echo 'EROOR: cannot connct to database.';
+        echo 'EROOR: cannot connect to the database.';
     }
 ?>
 <!DOCTYPE html>
@@ -33,47 +32,22 @@
     </div>
     <div class="form_box">
 <?php
-    $errors = array(); 
-    
     if(isset($_POST['submit'])){
-        $card_id = isset($_POST['card_id']) ? (int)strip_tags($_POST['card_id']) : null;
+        
+        $card_id = isset($_POST['card_id']) ? (int)strip_tags($_POST['card_id']) : null;//Принимаем форму
         $name = isset($_POST['name']) ? trim(strip_tags($_POST['name'])) : null;
         $phone = isset($_POST['phone']) ? trim(strip_tags($_POST['phone'])) : null;
+        $card_id = mysqli_real_escape_string($cnn, $card_id);//Экранируем спец. символы
+        $name = mysqli_real_escape_string($cnn, $name);
+        $phone = mysqli_real_escape_string($cnn, $phone);
         
-        $sql = mysqli_query($cnn, "INSERT INTO cards (card_id, name, phone) VALUES ('$card_id', '$name', '$phone')");
+        $data = "INSERT INTO cards (card_id, name, phone) VALUES ('$card_id', '$name', '$phone')";
+        $sql = mysqli_query($cnn, $data);
         if( !$sql ){
             echo mysqli_error($cnn);
         }
-        
-        $last_card = mysqli_query($cnn, "SELECT card_id, name, phone FROM cards ORDER BY id DESC LIMIT 2");
-        
-        while ($row = mysqli_fetch_array($last_card)){
-            echo "Номер: ".'77700770'.$row['card_id']."<br>";
-            echo "ФИО: ".$row['name']."<br>";
-            echo "Номер телефона: ".$row['phone']."<br>"."<br>";
-        }
         mysqli_close($cnn);
         header("Location: success.php");
-//        $text = "77700770$card_id <br>"; 
-//        $text .= "$name <br>"; 
-//        $text .= "$phone <br><br>";
-//        
-//        $file = fopen ("card.html", "a+");
-//        fwrite ($file,$text);
-//        fclose ($file);
-////        header("Location: ".$_SERVER['REQUEST_URI']);
-//        
-//        //Check the name and make sure that it isn't a blank/empty string.      
-//        if(strlen(trim($name)) === 0){
-//            //Blank string, add error to $errors array.
-//            $errors[] = "You must enter your name!";
-//        }
-//        if(!empty($errors)){ 
-//        echo '<h1>Error(s)!</h1>';
-//            foreach($errors as $errorMessage){
-//                echo $errorMessage . '<br>';
-//            }
-//        }
     }
 ?>
     </div>

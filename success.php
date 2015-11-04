@@ -5,9 +5,8 @@
     define('DB_NAME', 'budcentr_cards');
     
     $cnn = mysqli_connect(DB_HOST, DB_LOGIN, DB_PASSWORD, DB_NAME);
-    
     if(!$cnn){
-        echo 'EROOR: cannot connct to database.';
+        echo 'EROOR: cannot connect to the database.';
     }
 ?>
 <!DOCTYPE html>
@@ -21,16 +20,15 @@
 <body>
     <div class="form_box">
     <p class="success">Последние карточки:</p>
-    <?php
+<?php
     $last_card = mysqli_query($cnn, "SELECT card_id, name, phone FROM cards ORDER BY id DESC LIMIT 2");
-        while ($row = mysqli_fetch_array($last_card)){
-            echo "Номер: ".'77700770'.$row['card_id']."<br>";
-            echo "ФИО: ".$row['name']."<br>";
-            echo "Номер телефона: ".$row['phone']."<br>"."<br>";
-        }
-        mysqli_close($cnn);
- //       header("Location: ".$_SERVER['REQUEST_URI']);
-    ?>
+    while ($row = mysqli_fetch_array($last_card)){
+        echo "Номер: ".'77700770'.$row['card_id']."<br>";
+        echo "ФИО: ".$row['name']."<br>";
+        echo "Номер телефона: ".$row['phone']."<br>"."<br>";
+    }
+    mysqli_close($cnn);
+?>
     <a href="index.php">Ввести еще</a>
     </div>
 </body>
