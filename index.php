@@ -1,13 +1,5 @@
 <?php
-    define('DB_HOST', 'localhost');
-    define('DB_LOGIN', 'root');
-    define('DB_PASSWORD', '');
-    define('DB_NAME', 'budcentr_cards');
-    
-    $cnn = mysqli_connect(DB_HOST, DB_LOGIN, DB_PASSWORD, DB_NAME);
-    if(!$cnn){
-        echo 'EROOR: cannot connect to the database.';
-    }
+    require('scripts.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,8 +21,9 @@
             <input type="tel" class="rfield" name="phone" placeholder="0981112233" required maxlength="13" pattern="[0-9]{10,13}"/>
             <input type="submit" class="btn_submit" name="submit" value="Отправить данные" />
         </form>
+        <a href="show_all.php" class="grey">Показать все карточки</a>
+        <a href="show_all.php" class="grey">Показать неотправленные</a>
     </div>
-    <div class="form_box">
 <?php
     if(isset($_POST['submit'])){
         
@@ -50,6 +43,5 @@
         header("Location: success.php");
     }
 ?>
-    </div>
 </body>
 </html>
