@@ -1,13 +1,5 @@
 <?php
-    define('DB_HOST', 'localhost');
-    define('DB_LOGIN', 'root');
-    define('DB_PASSWORD', '');
-    define('DB_NAME', 'budcentr_cards');
-    
-    $cnn = mysqli_connect(DB_HOST, DB_LOGIN, DB_PASSWORD, DB_NAME);
-    if(!$cnn){
-        echo 'EROOR: cannot connect to the database.';
-    }
+    require('scripts.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +11,16 @@
 </head>
 <body>
     <div class="form_box">
-    <p class="success">Последние карточки:</p>
+    
+    
+<?php
+    if(isset($_GET['status']) AND $_GET['status'] == 'success') {      
+        echo '<h3 class="green_color">Данные записаны!</h3>';
+    } else {
+        echo '<h3 class="error">Данные не записаны!</h3>';
+    }
+?>
+<p class="main_color"> Последние карточки:</p>
 <?php
     $last_card = mysqli_query($cnn, "SELECT card_id, name, phone FROM cards ORDER BY id DESC LIMIT 2");
     while ($row = mysqli_fetch_array($last_card)){

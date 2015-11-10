@@ -24,9 +24,20 @@ a {
     padding: 7px 7px 8px;
     width: 250px;
     margin-bottom: 20px;
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
+    transition: border 0.5, background 0.5s;
+    -webkit-transition: border 0.5s, background 0.5s;
     -moz-transition: all 0.5s;
+}
+
+.form_box input[type=checkbox] {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    left: -50px;
+}
+
+.grey {
+    background: #9a9a9a;
 }
 
 a {
@@ -40,6 +51,10 @@ a {
 
 .form_box .card_default {
     width: 157px;
+}
+
+.form_box label {
+    position: relative;
 }
 
 .form_box .card_id {
@@ -62,12 +77,14 @@ a {
     padding: 0;
 }
 
-.form_box .btn_submit:hover {
+.form_box .btn_submit:hover,
+a:hover {
     background: #009ac2;
 }
 
-.form_box .btn_submit:active {
-    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.2);
+.form_box .btn_submit:active,
+a:active {
+    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .form_box .btn_submit.disabled,
@@ -76,6 +93,39 @@ a {
     cursor: default;
 }
 
-.success {
+.green_color {
+    color: #45bf3b;
+}
+.main_color {
     color: #07a6e6;
+}
+
+.error {
+    color: #e14141;
+}
+
+table {
+    border: 2px solid #07a6e6;
+    width: 400px;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+table td,
+table th {
+    padding: 10px;
+    border: 1px solid #07a6e6;
+    text-align: center;
+}
+
+table td:nth-child(3) {
+    width: 120px;
+}
+
+table caption {
+    margin: 20px auto;
+}
+
+table caption a {
+    margin: 0;
 }
