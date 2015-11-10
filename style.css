@@ -93,8 +93,15 @@ a:active {
     cursor: default;
 }
 
-.success {
+.green_color {
+    color: #45bf3b;
+}
+.main_color {
     color: #07a6e6;
+}
+
+.error {
+    color: #e14141;
 }
 
 table {

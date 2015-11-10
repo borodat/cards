@@ -1,6 +1,7 @@
 <?php
     require('scripts.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,26 @@
 </head>
 <body>
     <div class="form_box">
-        <form action="success.php" method="post">
+<?php
+if(isset($_POST['submit'])){
+        $card_id = isset($_POST['card_id']) ? (int)strip_tags($_POST['card_id']) : null;//Принимаем форму
+        $name = isset($_POST['name']) ? trim(strip_tags($_POST['name'])) : null;
+        $phone = isset($_POST['phone']) ? trim(strip_tags($_POST['phone'])) : null;
+        $card_id = mysqli_real_escape_string($cnn, $card_id);//Экранируем спец. символы
+        $name = mysqli_real_escape_string($cnn, $name);
+        $phone = mysqli_real_escape_string($cnn, $phone);
+        
+        $data = "INSERT INTO cards (card_id, name, phone) VALUES ('$card_id', '$name', '$phone')";
+        $sql = mysqli_query($cnn, $data);
+        if( !$sql ){
+            echo mysqli_error($cnn);
+            exit;
+        }
+        header('location: success.php?status=success');
+        exit;
+    }
+?>
+        <form action="index.php" method="post">
             <label for="card_id">Номер карточки:</label>
             <input type="text" class="card_default"  value="77700770" disabled>
             <input type="text" class="rfield card_id" name="card_id"  placeholder="12345" maxlength="5" pattern="[0-9]{5}" required/>

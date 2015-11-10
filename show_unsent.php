@@ -1,5 +1,16 @@
 <?php
     require('scripts.php');
+
+    session_start();
+    if(isset($_GET['do']) AND $_GET['do'] == 'logout'){
+        unset($_SESSION['admin']);
+        session_destroy();
+    }
+
+    if(!$_SESSION['admin']){
+        header("Location: enter.php");
+        exit;
+    }
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -13,7 +24,7 @@
 
     <body>
         <div class="form_box">
-            <p class="success">Неотправленные:</p>
+            <p class="main_color">Неотправленные:</p>
             <form action="success_update.php" method="post">
 <?php
     $query = "SELECT id, card_id, name, phone FROM cards WHERE is_sent='0' ORDER BY id";
@@ -30,6 +41,7 @@
             <input type="submit" name='submit' class="btn_submit" value="Отметить как отправленные">
             </form>
             <a href="index.php">Ввести еще</a>
+            <a href="show_unsent.php?do=logout">Выход</a>
         </div>
     </body>
     </html>

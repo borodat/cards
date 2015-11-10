@@ -1,5 +1,17 @@
 <?php
     require('scripts.php');
+
+    session_start();
+    if(isset($_GET['do'])){
+        if($_GET['do'] == 'logout'){
+            unset($_SESSION['admin']);
+            session_destroy();
+        }
+    }
+    if(!$_SESSION['admin']){
+        header("Location: enter.php");
+        exit;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +48,7 @@
     </table>
     <div class="form_box">
         <a href="index.php">Ввести еще</a>
+        <a href="show_all.php?do=logout">Выход</a>
     </div>
 </body>
 </html>
