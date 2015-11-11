@@ -36,7 +36,9 @@
             echo $row['name']."<br>";
             echo $row['phone']."<br>"."<br>";
             echo "</label>";
-    }
+?>
+            <a href="edit.php?id=<?php echo $row['id']?>">Редактировать запись</a>
+<?php  } 
 ?>
             <input type="submit" name='submit' class="btn_submit" value="Отметить как отправленные">
             </form>
