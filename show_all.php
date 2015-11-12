@@ -23,8 +23,7 @@
 </head>
 <body>
     <table>
-        <caption class="success"><a href="index.php">На главную</a></caption>
-        <caption class="success">Все карточки:</caption>
+        <caption><h3 class="main_color">Все карточки:</h3></caption>
         <tr><th>ID</th><th>Реквизиты</th><th>Дата</th></tr>
 <?php
     $show_all = mysqli_query($cnn, "SELECT id, card_id, name, phone, date FROM cards ORDER BY id DESC");
@@ -48,7 +47,7 @@
     </table>
     <div class="form_box">
         <a href="index.php">На главную</a>
-        <a href="show_all.php?do=logout">Выход</a>
+        <a href="show_all.php?do=logout" class="grey">Выход</a>
     </div>
 </body>
 </html>

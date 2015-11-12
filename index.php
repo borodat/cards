@@ -12,6 +12,7 @@
 </head>
 <body>
     <div class="form_box">
+        <h3 class="main_color">Главная</h3>
 <?php
 if(isset($_POST['submit'])){
         $card_id = isset($_POST['card_id']) ? (int)strip_tags($_POST['card_id']) : null;//Принимаем форму
@@ -41,8 +42,9 @@ if(isset($_POST['submit'])){
             <input type="tel" class="rfield" name="phone" placeholder="0981112233" required maxlength="13" pattern="[0-9]{10,13}"/>
             <input type="submit" class="btn_submit" name="submit" value="Отправить данные" />
         </form>
-        <a href="show_all.php" class="grey">Показать все карточки</a>
-        <a href="show_unsent.php" class="grey">Показать неотправленные</a>
+        <a href="show_all.php" class="grey"> Все карточки</a>
+        <a href="show_unsent.php" class="grey">Неотправленные</a>
+        <a href="show_for_edit.php" class="grey">Редактировать</a>
     </div>
 </body>
 </html>

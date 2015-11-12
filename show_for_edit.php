@@ -24,26 +24,25 @@
 
     <body>
         <div class="form_box">
-            <p class="main_color">Неотправленные:</p>
-            <form action="success_update.php" method="post">
+            <h3 class="main_color">Редактировать:</h3>
 <?php
-    $query = "SELECT id, card_id, name, phone FROM cards WHERE is_sent='0' ORDER BY id";
+    $query = "SELECT id, card_id, name, phone FROM cards WHERE is_sent='0' ORDER BY id  DESC";
     $show_unsent = mysqli_query($cnn, $query);
     while ($row = mysqli_fetch_array($show_unsent)){
-            echo "<label class='edit_label'>";
-            echo '<input type="checkbox" name='.$row['id'].">";
+            echo "<div class='edit_label'>";
             echo '77700770'.$row['card_id']."<br>";
             echo $row['name']."<br>";
             echo $row['phone']."<br>"."<br>";
-            echo "</label>";
 ?>
-            <a href="edit.php?id=<?php echo $row['id']?>" class="edit_button">Редактировать запись</a>
-<?php  } 
+           </div>
+            <a href="edit.php?id=<?php echo $row['id']?>" class="edit_button">Редактировать</a>
+        
+<?php  
+    } 
 ?>
             <input type="submit" name='submit' class="btn_submit" value="Отметить как отправленные">
-            </form>
-            <a href="index.php">Ввести еще</a>
-            <a href="show_unsent.php?do=logout">Выход</a>
+            <a href="index.php" class="grey">На главную</a>
+            <a href="show_unsent.php?do=logout" class="grey">Выход</a>
         </div>
     </body>
     </html>
