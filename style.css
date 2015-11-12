@@ -53,8 +53,14 @@ a {
     width: 157px;
 }
 
-.form_box label {
+.form_box .edit_label{
+    width: 50%;
+    display: inline-block;
     position: relative;
+}
+
+.edit_button {
+    width: 40%;
 }
 
 .form_box .card_id {
