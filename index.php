@@ -11,14 +11,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="main_nav">
-        <ul>
-            <li><a href="index.php?page=">Главная</a></li>
-            <li><a href="index.php?page=">Все карточки</a></li>
-            <li><a href="index.php?page=">Неотправленные</a></li>
-            <li><a href="index.php?page=">Редактировать</a></li>
-        </ul>
-    </nav>
     <div class="form_box">
         <h3 class="main_color">Главная</h3>
 <?php
