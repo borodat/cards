@@ -27,7 +27,7 @@
             <label for="persona">ФИО клиента:</label>
             <input type="text" class="rfield" name="name"value="<?php echo $row['name']?>" pattern="^[А-Яа-яІіЇї\s\.]+$" maxlength="50" required/>
             <label for="user_phone">Номер телефона:</label>
-            <input type="tel" class="rfield" name="phone" value="<?php echo $row['phone']?>" required maxlength="13" pattern="[0-9]{10,13}"/>
+            <input type="tel" class="rfield" name="phone" value="<?php echo $row['phone']?>" required maxlength="10" pattern="[0-9]{10,13}"/>
             <input type="submit" class="btn_submit" name="update" value="Редактировать данные" />
     </form>
 <?php
@@ -55,8 +55,8 @@ if(isset($_POST['update'])){
     }
      mysqli_close($cnn);
 ?>
-        <a href="show_all.php" class="grey">Показать все карточки</a>
-        <a href="show_unsent.php" class="grey">Показать неотправленные</a>
+        <a href="index.php?page_id=all" class="grey">Показать все карточки</a>
+        <a href="index.php?page_id=unsent" class="grey">Показать неотправленные</a>
     </div>
 </body>
 </html>
