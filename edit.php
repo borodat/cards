@@ -32,7 +32,7 @@
     </form>
 <?php
     } elseif(isset($_GET['id']) AND $_GET['id']=='success'){
-        echo "<p class='green_color'> УСПЕХХх";
+        echo "<h3 class='green_color'> Запись отредактирована!</h3>";
     } else {echo "<p class='error'> id не передан.</p>";}
 ?>
 <?php

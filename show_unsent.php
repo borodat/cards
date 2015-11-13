@@ -36,12 +36,32 @@
             echo $row['name']."<br>";
             echo $row['phone']."<br>"."<br>";
             echo "</label>";
-    } 
+    }
 ?>
+           <label><input type="checkbox" onchange="checkAll(this)" name="check_all" />ОТМЕТИТЬ ВСЕ<br><br></label>
             <input type="submit" name='submit' class="btn_submit" value="Отметить как отправленные">
             </form>
             <a href="index.php" class="grey">На главную</a>
             <a href="show_unsent.php?do=logout" class="grey">Выход</a>
         </div>
+<script>
+ function checkAll(ele) {
+     var checkboxes = document.getElementsByTagName('input');
+     if (ele.checked) {
+         for (var i = 0; i < checkboxes.length; i++) {
+             if (checkboxes[i].type == 'checkbox') {
+                 checkboxes[i].checked = true;
+             }
+         }
+     } else {
+         for (var i = 0; i < checkboxes.length; i++) {
+             console.log(i)
+             if (checkboxes[i].type == 'checkbox') {
+                 checkboxes[i].checked = false;
+             }
+         }
+     }
+ }
+</script>
     </body>
     </html>

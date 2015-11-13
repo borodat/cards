@@ -40,7 +40,6 @@
 <?php  
     } 
 ?>
-            <input type="submit" name='submit' class="btn_submit" value="Отметить как отправленные">
             <a href="index.php" class="grey">На главную</a>
             <a href="show_unsent.php?do=logout" class="grey">Выход</a>
         </div>
