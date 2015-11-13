@@ -13,6 +13,7 @@ body {
 .form_box label {
     font-size: 16px;
     display: block;
+    position: relative;
 }
 
 .form_box input,
@@ -36,10 +37,6 @@ a {
     left: -50px;
 }
 
-.grey {
-    background: #9a9a9a;
-}
-
 a {
     text-decoration: none;
 }
@@ -53,8 +50,14 @@ a {
     width: 157px;
 }
 
-.form_box label {
-    position: relative;
+.form_box .edit_label{
+    width: 62%;
+    display: inline-block;
+}
+
+.edit_button {
+    width: 38%;
+    float: right;
 }
 
 .form_box .card_id {
@@ -96,6 +99,11 @@ a:active {
 .green_color {
     color: #45bf3b;
 }
+
+.grey {
+    background: #847f7f;
+}
+
 .main_color {
     color: #07a6e6;
 }

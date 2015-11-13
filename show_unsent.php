@@ -24,7 +24,7 @@
 
     <body>
         <div class="form_box">
-            <p class="main_color">Неотправленные:</p>
+            <h3 class="main_color">Неотправленные:</h3>
             <form action="success_update.php" method="post">
 <?php
     $query = "SELECT id, card_id, name, phone FROM cards WHERE is_sent='0' ORDER BY id";
@@ -38,10 +38,30 @@
             echo "</label>";
     }
 ?>
+           <label><input type="checkbox" onchange="checkAll(this)" name="check_all" />ОТМЕТИТЬ ВСЕ<br><br></label>
             <input type="submit" name='submit' class="btn_submit" value="Отметить как отправленные">
             </form>
-            <a href="index.php">Ввести еще</a>
-            <a href="show_unsent.php?do=logout">Выход</a>
+            <a href="index.php" class="grey">На главную</a>
+            <a href="show_unsent.php?do=logout" class="grey">Выход</a>
         </div>
+<script>
+ function checkAll(ele) {
+     var checkboxes = document.getElementsByTagName('input');
+     if (ele.checked) {
+         for (var i = 0; i < checkboxes.length; i++) {
+             if (checkboxes[i].type == 'checkbox') {
+                 checkboxes[i].checked = true;
+             }
+         }
+     } else {
+         for (var i = 0; i < checkboxes.length; i++) {
+             console.log(i)
+             if (checkboxes[i].type == 'checkbox') {
+                 checkboxes[i].checked = false;
+             }
+         }
+     }
+ }
+</script>
     </body>
     </html>

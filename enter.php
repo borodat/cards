@@ -1,4 +1,6 @@
 <?php
+header('Cache-Control: no cache'); //no cache
+session_cache_limiter('private_no_expire');
 session_start();
 if(isset($_SESSION['admin'])){
     header("Location: show_unsent.php");
@@ -33,6 +35,7 @@ $pass = '04c95ac8d4ddac707bd0c8020cee7ffa';
 	<label>Пароль: <input type="password" name="pass" /></label>
 	<input type="submit" class="btn_submit"  name="submit" value="Войти" />
 </form>
+    <a href="index.php">На главную</a>
     </div>
 </body>
 </html>
