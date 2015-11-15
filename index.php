@@ -1,6 +1,3 @@
-<?php
-    require('scripts.php');
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +17,10 @@
             <li><a href="../orders/" class="green">Заказы</a></li>
         </ul>
     </nav>
+<?php
+    require('scripts.php');
+?>
+
 <?php
 if(isset($_GET['page_id'])){
     $page_id = $_GET['page_id'];

@@ -31,8 +31,8 @@ $pass = '04c95ac8d4ddac707bd0c8020cee7ffa';
 <h3 class="main_color">Авторизация:</h3>
 
 <form  method="post">
-	<label>Логин: <input type="text" name="user" /></label>
-	<label>Пароль: <input type="password" name="pass" /></label>
+	<label >Логин: <input class="rfield" type="text" name="user" /></label>
+	<label>Пароль: <input class="rfield" type="password" name="pass" /></label>
 	<input type="submit" class="btn_submit"  name="submit" value="Войти" />
 </form>
     <a href="index.php">На главную</a>
