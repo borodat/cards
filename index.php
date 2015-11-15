@@ -17,6 +17,7 @@
             <li><a href="index.php?page_id=all" class="grey">Все карточки</a></li>
             <li><a href="index.php?page_id=unsent" class="grey">Неотправленные</a></li>
             <li><a href="index.php?page_id=edit" class="grey">Редактировать</a></li>
+            <li><a href="../orders/" class="green">Заказы</a></li>
         </ul>
     </nav>
 <?php

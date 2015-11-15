@@ -9,7 +9,7 @@ h3 {
     text-align: center;
 }
 nav {
-    width: 600px;
+    width: 750px;
     margin: 0 auto;
     overflow: hidden;
 }
@@ -18,7 +18,7 @@ nav ul {
 }
 nav li {
     list-style: none;
-    width: 23%;
+    width: 18%;
     float: left;
     margin: 0 1%;
     
@@ -123,6 +123,9 @@ a:active {
     color: #45bf3b;
 }
 
+.green {
+    background: #55c685;
+}
 .grey {
     background: #847f7f;
 }
