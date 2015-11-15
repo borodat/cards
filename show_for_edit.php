@@ -22,7 +22,7 @@
             echo $row['phone']."<br>"."<br>";
 ?>
            </div>
-            <a href="edit.php?id=<?php echo $row['id']?>" class="edit_button">Редактировать</a>
+            <a href="index.php?page_id=edit_page&id=<?php echo $row['id']?>" class="edit_button">Редактировать</a>
         
 <?php  
     } 

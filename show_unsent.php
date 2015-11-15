@@ -12,7 +12,7 @@
 ?>
         <div class="form_box">
             <h3 class="main_color">Неотправленные:</h3>
-            <form action="success_update.php" method="post">
+            <form action="index.php?page_id=success_sent" method="post">
 <?php
     $query = "SELECT id, card_id, name, phone FROM cards WHERE is_sent='0' ORDER BY id";
     $show_unsent = mysqli_query($cnn, $query);
@@ -32,21 +32,22 @@
             <a href="show_unsent.php?do=logout" class="grey">Выход</a>
         </div>
 <script>
- function checkAll(ele) {
-     var checkboxes = document.getElementsByTagName('input');
-     if (ele.checked) {
-         for (var i = 0; i < checkboxes.length; i++) {
+ //slect All script
+function checkAll(ele) {
+    var checkboxes = document.getElementsByTagName('input');
+    if (ele.checked) {
+        for (var i = 0; i < checkboxes.length; i++) {
              if (checkboxes[i].type == 'checkbox') {
                  checkboxes[i].checked = true;
              }
-         }
-     } else {
-         for (var i = 0; i < checkboxes.length; i++) {
+        }
+    } else {
+        for (var i = 0; i < checkboxes.length; i++) {
              console.log(i)
              if (checkboxes[i].type == 'checkbox') {
                  checkboxes[i].checked = false;
              }
          }
      }
- }
+}
 </script>
