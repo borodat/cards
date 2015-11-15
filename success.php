@@ -1,20 +1,6 @@
+<div class="form_box">   
 <?php
-    require('scripts.php');
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Cards</title>
-    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="form_box">
-    
-    
-<?php
-    if(isset($_GET['status']) AND $_GET['status'] == 'success') {      
+    if(isset($_GET['page_id']) AND $_GET['page_id'] == 'success') {      
         echo '<h3 class="green_color">Данные записаны!</h3>';
     } else {
         echo '<h3 class="error">Данные не записаны!</h3>';
@@ -31,6 +17,4 @@
     mysqli_close($cnn);
 ?>
     <a href="index.php">Ввести еще</a>
-    </div>
-</body>
-</html>
+</div>

@@ -1,6 +1,4 @@
 <?php
-    require('scripts.php');
-
     session_start();
     if(isset($_GET['do']) AND $_GET['do'] == 'logout'){
         unset($_SESSION['admin']);
@@ -12,17 +10,6 @@
         exit;
     }
 ?>
-    <!DOCTYPE html>
-    <html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <title>Cards</title>
-        <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="style.css">
-    </head>
-
-    <body>
         <div class="form_box">
             <h3 class="main_color">Редактировать:</h3>
 <?php
@@ -35,7 +22,7 @@
             echo $row['phone']."<br>"."<br>";
 ?>
            </div>
-            <a href="edit.php?id=<?php echo $row['id']?>" class="edit_button">Редактировать</a>
+            <a href="index.php?page_id=edit_page&id=<?php echo $row['id']?>" class="edit_button">Редактировать</a>
         
 <?php  
     } 
@@ -43,5 +30,3 @@
             <a href="index.php" class="grey">На главную</a>
             <a href="show_unsent.php?do=logout" class="grey">Выход</a>
         </div>
-    </body>
-    </html>

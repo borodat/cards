@@ -1,6 +1,4 @@
 <?php
-    require('scripts.php');
-
     session_start();
     if(isset($_GET['do'])){
         if($_GET['do'] == 'logout'){
@@ -13,15 +11,6 @@
         exit;
     }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Cards</title>
-    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
     <table>
         <caption><h3 class="main_color">Все карточки:</h3></caption>
         <tr><th>ID</th><th>Реквизиты</th><th>Дата</th></tr>
@@ -49,5 +38,3 @@
         <a href="index.php">На главную</a>
         <a href="show_all.php?do=logout" class="grey">Выход</a>
     </div>
-</body>
-</html>
