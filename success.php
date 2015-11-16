@@ -1,7 +1,11 @@
 <div class="form_box">   
 <?php
-    if(isset($_GET['page_id']) AND $_GET['page_id'] == 'success') {      
-        echo '<h3 class="green_color">Данные записаны!</h3>';
+    if(isset($_GET['page_id'])) {     
+        if ($_GET['id'] == 'success_write') {
+            echo '<h3 class="green_color">Данные записаны!</h3>';
+        } elseif ($_GET['id'] == 'success_update'){
+            echo "<h3 class='green_color'> Запись отредактирована!</h3>";
+        }
     } else {
         echo '<h3 class="error">Данные не записаны!</h3>';
     }

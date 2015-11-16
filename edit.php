@@ -1,6 +1,6 @@
 <div class="form_box">
 <?php 
-    if(isset($_GET['id']) AND $_GET['id']!=='success') {
+    if(isset($_GET['id'])) {
         $id = $_GET['id'];
         $show_all = mysqli_query($cnn, "SELECT id, card_id, name, phone FROM cards WHERE id='$id'");
         $row = mysqli_fetch_array($show_all);
@@ -16,8 +16,6 @@
         <input type="submit" class="btn_submit" name="update" value="Редактировать данные" />
     </form>
 <?php
-    } elseif(isset($_GET['id']) AND $_GET['id']=='success'){
-        echo "<h3 class='green_color'> Запись отредактирована!</h3>";
     } else {echo "<p class='error'> id не передан.</p>";}
 ?>
 <?php
@@ -35,7 +33,7 @@
             echo mysqli_error($cnn);
             exit;
         }
-        header("Location: index.php?page_id=edit_page&id=success");;
+        header("Location: index.php?page_id=success&id=success_update");;
         exit;
     }
     mysqli_close($cnn);
